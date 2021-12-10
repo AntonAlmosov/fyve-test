@@ -6,7 +6,7 @@ const AppError = require("../utils/appError");
 const schema = Joi.object({
   id: Joi.number().required(),
   appointment: {
-    time: Joi.date().required(),
+    time: Joi.array().items(Joi.date().iso()).required(),
     additionalNotes: Joi.string(),
   },
   user: {
