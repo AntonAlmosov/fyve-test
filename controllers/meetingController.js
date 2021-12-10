@@ -64,7 +64,7 @@ exports.postMeeting = catchAsync(async (req, res, next) => {
 
   const { error, value } = await schema.validate(meeting);
 
-  if (error) return next(new AppError(JSON.stringify(value)));
+  if (error) return next(new AppError(JSON.stringify(error)));
 
   res.status(200).json({
     status: "success",
