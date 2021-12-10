@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const morgan = require("morgan");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const xss = require("xss-clean");
@@ -36,10 +35,6 @@ app.use(express.json());
 
 // set security http headers
 app.use(helmet());
-
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
-}
 
 // $ CORS
 app.use(cors());
